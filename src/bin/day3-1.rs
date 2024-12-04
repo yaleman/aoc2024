@@ -5,8 +5,7 @@ pub fn main() -> Result<(), std::io::Error> {
     let cli = CliOpts::parse();
     let file_contents = load_file(3, cli.sample)?;
 
-    let finder =
-        Regex::new(r#"mul\((?P<num1>\d+),(?P<num2>\d+)\)"#).expect("Failed to compile regex");
+    let finder = Regex::new(r#"(mul\(\d+,\d+\))"#).expect("Failed to compile regex");
     let mut result = 0;
 
     for value in finder.find_iter(&file_contents) {
