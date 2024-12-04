@@ -1,8 +1,9 @@
-use aoc2024::load_file;
+use aoc2024::*;
 
 pub fn main() {
     // load the file
-    let filecontents = load_file(1).expect("Failed to load");
+    let cli = CliOpts::parse();
+    let filecontents = load_file(1, cli.sample).expect("Failed to load");
 
     // println!("File:\n{}", filecontents);
 

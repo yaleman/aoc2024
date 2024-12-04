@@ -1,8 +1,9 @@
-use aoc2024::load_file;
+use aoc2024::*;
 
 pub fn main() -> Result<(), std::io::Error> {
     // load the file
-    let filecontents = load_file(2)?;
+    let cli = CliOpts::parse();
+    let filecontents = load_file(1, cli.sample)?;
 
     let mut left_list = Vec::new();
     let mut right_list = Vec::new();
